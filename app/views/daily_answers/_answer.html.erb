@@ -1,0 +1,27 @@
+<div class="object_wrapper <%= "marked_answer" if answer.answer_mark %>" id="answer_<%= answer.id %>">
+  <div class="ratingdiv">
+    <% if signed_in? %>
+      <% if current_user?(answer.user) %>
+	<span id="answer_<%= answer.id %>_link">
+	  <% if answer.answer_mark %>
+	    <%= render :partial => 'answer_marks/unmark_answer',
+		:locals => {:answer_mark => answer.answer_mark } %>
+	  <% else %>
+	    <%= render :partial => 'answer_marks/mark_answer', 
+		:locals => {:answer => answer } unless @already_answered %>
+	  <% end %>
+	</span>
+      <% end %>
+      <% if (current_user?(answer.user) || current_user.admin?) %>
+	<%= (link_to "Delete", answer, :method => :delete, :confirm => "Delete?") %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="leftbar">
+    <a href="<%= user_path(answer.user) %>">
+      <%= image_tag answer.user.image_url.to_s, :class => 'avatar' %>
+    </a><br />
+    <%= name_wrap(answer.user.username) %>
+  </div>
+  <div class="content"><%= wrap(answer.content) %></div>
+</div>

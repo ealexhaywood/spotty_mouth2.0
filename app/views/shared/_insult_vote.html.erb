@@ -1,0 +1,22 @@
+<% uppath = "" %>
+<% downpath = "" %>
+<% if signed_in? %>
+  <% if current_user.voted_for?(insult) %>
+    <% uppath += "select" %>
+  <% end %>
+  <% if current_user.voted_against?(insult) %>
+    <% downpath += "select" %>
+  <% end %>
+<% end %>
+
+<% if signed_in? %>
+<%= link_to image_tag("uparrow#{uppath}.png"), vote_up_insult_path(insult.id), 
+	  :method => :post, :title => "Ohh Burn", :id => "uparrow#{insult.id}", :class => "arrow", :remote => true %>
+<% end %>
+
+<span>Insult Rating: <span id="insult_rating<%= insult.id %>"><%= insult.plusminus.to_s %></span></span>
+
+<% if signed_in? %>
+<%= link_to image_tag("downarrow#{downpath}.png"), vote_down_insult_path(insult.id), 
+	  :method => :post, :title => "Needs work", :id => "downarrow#{insult.id}", :class =>"arrow", :remote => true %>
+<% end %>

@@ -1,0 +1,38 @@
+<table class="wall">
+  <tr class="wallHeader">
+    <th>Today's <%= @adjective %> Haters</th>
+    <th>Today's <%= @adjective %> Burns</th>
+  </tr>
+  <tr>
+    <td>
+      <% unless @todays_users.nil? %>
+	<%= render :partial => 'shared/user_info', 
+		  :collection => @todays_users, :as => :user %>
+      <% end %>
+    </td>
+    <td>
+      <% unless @todays_insults.nil? %>
+	<%= render :partial => 'shared/insult_info', 
+		  :collection => @todays_insults, :as => :insult %>
+      <% end %>
+    </td>
+  </tr>
+  <tr class="wallHeader">
+    <th>All Time <%= @adjective %> Haters</th>
+    <th>All Time <%= @adjective %> Burns</th>
+  </tr>
+  <tr>
+    <td>
+      <% unless @all_time_users.nil? %>
+	<%= render :partial => 'shared/user_info', 
+		  :collection => @all_time_users, :as => :user %>
+      <% end %>
+    </td>
+    <td>
+      <% unless @all_time_insults.nil? %>
+	<%= render :partial => 'shared/insult_info', 
+		  :collection => @all_time_insults, :as => :insult %>
+      <% end %>
+    </td>
+  </tr>
+</table>

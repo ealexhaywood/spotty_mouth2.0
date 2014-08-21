@@ -1,0 +1,20 @@
+<% allowed_user = false %>
+<% if signed_in? %>
+  <% allowed_user = true if current_user.comment_delete_power?(comment) %>
+<% end %>
+
+<p class="timestamp">
+  Posted <%= time_ago_in_words(comment.created_at) %> ago
+</p>
+<div class="comment_wrapper">
+  <div class="comment ratingdiv">
+    <%= (link_to "Delete", comment, :method => :delete, :confirm => "Delete?") if allowed_user %>
+  </div>
+  <div class="leftbar comment_bar ">
+    <a href="<%= user_path(comment.commenter) %>">
+      <%= image_tag comment.commenter.image_url.to_s, :class => 'avatar' %>
+    </a><br />
+    <%= name_wrap(comment.commenter.username) %>
+  </div>
+  <div class="comment content"><%= wrap(comment.content) %></div>
+</div>

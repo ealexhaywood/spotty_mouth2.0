@@ -1,0 +1,19 @@
+<h1>Edit - <%= @user.username %></h1>
+<div class="sidebar">
+  <%= link_to "Change Password", user_changepassword_path(@user) %>
+</div>
+<%= form_for(@user, :as => :user, :url => { :controller => 'users', :action => 'update' }, :html => { :multipart => true, :method => 'put' }) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <%= hidden_field_tag(:id, @user.id) %>
+  <h3>Profile Picture</h3>
+  <span>
+    <%= image_tag @user.image_url.to_s, :class => 'avatar' %>
+    <%= f.file_field :image %> <br />
+  </span>
+  <div>
+    <%= f.text_area :blurb %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Save Changes" %> or <%= link_to 'Cancel', user_path(@user) %>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<div id="archiveList">
+    <span>Archive:</span>
+    <ul>
+      <li><%= link_to "All", daily_questions_archive_path %></li>
+      <% unless question_months.empty? %>
+	<% question_months.sort.reverse.each do |month, questions| %>
+	  <li><%= link_to "#{h month.strftime("%B %y")}",
+			    daily_questions_archive_path(:timeframe => month) %></li>
+	<% end %>
+      <% end %>
+    </ul>
+</div>

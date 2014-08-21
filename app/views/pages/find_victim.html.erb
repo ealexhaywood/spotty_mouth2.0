@@ -1,0 +1,21 @@
+<h1>Find Victim</h1>
+Search:
+<%= render 'shared/search_form' %>
+<% if @search_users.nil? %>
+  <p>The latest victims for the pickin':</p>
+    <% unless @newest_users.empty? %>
+      <ul class="users">
+	<%= render :partial => 'shared/user_tag', :collection => @newest_users, :as => :user %>
+      </ul>
+    <% end %>
+<% else %>
+  <p>Your search returned the following results:</p>
+    <%if @search_users.empty? %>
+      <p><strong>No Results You Fool</strong></p>
+    <% else %>
+      <ul class="users">
+	<%= render :partial => 'shared/user_tag', :collection => @search_users, :as => :user %>
+	<%= will_paginate @search_users %>
+      </ul>
+    <% end %>
+<% end %>

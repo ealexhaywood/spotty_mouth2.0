@@ -1,0 +1,20 @@
+  <%= form_for @user, :url => {:controller => 'passwords', :action => 'update'} do |f| %>
+    <%= render 'shared/error_messages', :object => f.object %>
+    <fieldset>
+      <div class="field">
+        <%= label_tag(:old_password) %><br />
+	<%= password_field_tag(:old_password, "",:size => '30') %>
+      </div>
+      <div class="field">
+        <%= f.label :password %> <br />
+        <%= f.password_field :password %>
+      </div>
+      <div class="field">
+        <%= f.label :password_confirmation, "Confirmation" %><br />
+        <%= f.password_field :password_confirmation %>
+      </div>
+      <div class="actions">
+          <%= f.submit "Update" %> or <%= link_to 'Cancel', user_path(@user) %>
+      </div>
+    </fieldset>
+<% end %>

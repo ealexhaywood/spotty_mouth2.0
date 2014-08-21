@@ -1,0 +1,6 @@
+<% unless @users.empty? %>
+<ul class="users">
+  <%= render :partial => 'shared/user_tag', :collection => @users, :as => :user %>
+</ul>
+<%= will_paginate @users %>
+<% end %>

@@ -1,0 +1,3 @@
+$("insult_rating<%= @voted_on_insult.id %>").update('<%= @voted_on_insult.plusminus.to_s %>')
+$("downarrow<%= @voted_on_insult.id %>").update('<%= image_tag("downarrow.png") %>')
+$("uparrow<%= @voted_on_insult.id %>").update('<%= image_tag("uparrowselect.png") %>')

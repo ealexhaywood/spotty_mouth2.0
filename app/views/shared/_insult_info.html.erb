@@ -1,0 +1,9 @@
+<div class="insult_info">
+  <%= insult.content[0,30] %>... by <br /><%= link_to insult.insulter.username, user_path(insult.insulter) %>
+  on <%= link_to insult.insulted.username, user_path(insult.insulted) %>'s wall.
+  <br /><strong>Rating: </strong><%= insult.plusminus %>
+  <br />
+  <span><%= link_to "#{pluralize(insult.votes_for, "vote")} for", voters_for_insult_path(insult) %> |</span>
+  <span><%= link_to "#{pluralize(insult.votes_against, "vote")} against", voters_against_insult_path(insult) %></span>
+</div>
+<hr />

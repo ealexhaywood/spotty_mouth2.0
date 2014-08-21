@@ -1,0 +1,13 @@
+<div id="archiveWrap">
+ <%= render 'sidebar' %>
+<% unless @daily_questions.empty? %>
+  <table>
+    <tr>
+      <td><h3>Question</h3></td>
+      <td><h3>Posted</h3></td>
+    </tr>
+    <%= render(:partial => 'archive_list', :collection => @daily_questions, :as => :question) %>
+  </table>
+<%= will_paginate %>
+<% end %>
+</div>

@@ -1,0 +1,7 @@
+$("answer_<%= @answer_mark.answer_id %>").removeClassName("marked_answer");
+<% if @user_answers_ids %>
+  <% @user_answers_ids.each do |answer| %>
+    $("answer_<%= answer.id %>_link").update('<%= render :partial => "answer_marks/mark_answer", 
+	      :locals => {:answer => answer } %>');
+  <% end %>
+<% end %>

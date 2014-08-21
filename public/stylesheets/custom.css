@@ -1,0 +1,367 @@
+.container {
+width: 710px;
+}
+
+textarea
+{
+  width: 98%;
+}
+
+.clearer
+{
+  clear: both;
+  line-height: 0;
+}
+
+body {
+background: #3F5359;
+}
+
+header {
+padding-top: 20px;
+line-height: 0;
+}
+
+section {
+margin-top: 1em;
+font-size: 120%;
+padding: 20px;
+background: #f0f0f0;
+}
+
+section h1 {
+font-size: 200%;
+}
+
+.sidebar
+{
+  float: right;
+}
+
+/* Links */
+a {
+color: #09c;
+text-decoration: none;
+}
+
+a:hover {
+color: #069;
+text-decoration: underline;
+}
+
+a:visited {
+color: #069;
+}
+
+a.signup_button {
+margin: 10px auto;
+display: block;
+text-align: center;
+width: 120px;
+color: #f1af12;
+background: #3F5359;
+font-size: 150%;
+font-weight: bold;
+padding: 10px;
+}
+
+/* Navigation */
+nav {
+float: right;
+padding: 0 0.7em;
+white-space: nowrap;
+font-size: 125%;
+line-height: 1.2em;
+z-index: 2;
+}
+
+nav a
+{
+  color: #f1af12;
+}
+
+nav a:hover
+{
+  color: #f1af12;
+}
+
+nav ul {
+margin: 0;
+padding: 0;
+}
+
+nav ul li {
+list-style-type: none;
+display: inline-block;
+padding: 0.2em 0;
+margin-right: 1.5em;
+}
+
+nav ul li a {
+padding: 0 5px;
+font-weight: bold;
+}
+
+nav ul li a:visited {
+color: #f1af12;
+}
+
+nav ul li a:hover {
+text-decoration: underline;
+}
+
+#lastnavitem {
+  margin-right: 0
+}
+
+footer {
+text-align: center;
+margin-top: 10px;
+width: 710px;
+margin-left: auto;
+margin-right: auto;
+}
+
+footer nav {
+float: none;
+}
+
+div.field, div.actions {
+margin-bottom: 10px;
+}
+
+.field_with_errors {
+margin-top: 10px;
+padding: 2px;
+background-color: red;
+}
+
+.field_with_errors label {
+color: #fff;
+}
+
+#error_explanation {
+width: 400px;
+border: 2px solid red;
+padding: 7px;
+padding-bottom: 12px;
+margin-bottom: 20px;
+background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+text-align: left;
+font-weight: bold;
+padding: 5px 5px 5px 15px;
+font-size: 12px;
+margin: -7px;
+background-color: #c00;
+color: #fff;
+}
+
+#error_explanation p {
+color: #333;
+margin-bottom: 0;
+padding: 5px;
+}
+
+#error_explanation ul li {
+font-size: 12px;
+list-style: square;
+}
+
+ul.users {
+margin-top: 1em;
+}
+
+.users li {
+list-style: none;
+}
+
+div.user_info img {
+float: left;
+}
+
+div.user_info a {
+text-decoration: none;
+}
+
+.user_info h3
+{
+  display: inline;
+}
+
+.user_info span
+{
+  margin-left: 0.3em;
+}
+
+.userratingdiv h3
+{
+  display: inline;
+}
+
+.userfollowdiv
+{
+  float: right;
+}
+
+/*------Insult Styles ------*/
+.objectPoster
+{
+  height: 100px !important;
+}
+
+.object_wrapper
+{
+  margin: 0 0 1.4em;
+  border: 1px solid #D4D4D4;
+  position: relative;
+  min-height: 100px;
+}
+
+.comment_wrapper
+{
+  margin: 0 0 1.4em;
+  border: 1px solid #000;
+  position: relative;
+  min-height: 100px;
+}
+
+.content
+{
+  padding: .7em;
+  margin-left: 125px;
+  overflow-x: hidden;
+}
+
+.leftbar
+{
+  text-align: center;
+  width: 125px;
+  border-right: 1px solid #D4D4D4;
+  margin-right: .7em;
+  height: 100% !important;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.comment_bar
+{
+  border-right: 1px solid #000;
+}
+
+.timestamp
+{
+  margin: 0;
+}
+
+.ratingdiv
+{
+  float: right;
+  font-size: 10px;
+}
+
+.arrow
+{
+  cursor: pointer;
+  border: none;
+}
+
+.comments_link
+{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.comments
+{
+  background-color: #d4d4d4;
+}
+
+
+/*------End Insult Styles ------*/
+
+/*---------Daily Question Styles--------*/
+.daily_question
+{
+  border: 2px solid red;
+  background-color: #FBE3E4;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+}
+
+.marked_answer
+{
+  background-color: #C6D880;
+  border: 1px solid #264409;
+}
+
+/*---------End Daily Question Styles--------*/
+
+.right
+{
+  float: right;
+  width: 50%;
+  background-color: #FF0000;
+}
+
+.stats
+{
+  text-align: center;
+  background-color: #0051FF;
+  margin: 10px 0;
+}
+
+.stats a
+{
+  color: #fff;
+  font-weight: bold;
+}
+
+
+/*---------Wall Items---------*/
+.wallHeader
+{
+  background-color: #3F5359;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+.wall td
+{
+  width: 50%;
+  vertical-align: top;
+}
+
+/*---------Archive Styles---------*/
+#archiveList
+{
+  float: right;
+  width: 16%;
+  border: 1px solid #D4D4D4;
+  margin-top: 2em;
+  padding: .5em;
+}
+
+#archiveList li
+{
+  list-style-type: none;
+  margin-left: -1em;
+}
+
+#archiveWrap table
+{
+  width: 80%;
+}
+
+
+/*---------Footer Items---------*/
+#footer
+{
+  margin: 15px -9px 0;

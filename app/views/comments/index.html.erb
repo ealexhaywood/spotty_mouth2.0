@@ -1,0 +1,19 @@
+<%= render @insult %>
+<div class="comments">
+  <% unless signed_in? %>
+    <%= render 'shared/login_prompt', :object_name => "comment" %>
+  <% end %>
+  <% if @comments.empty? %>
+    <p><strong>No comments.</strong></p>
+  <% else %>
+    <%= will_paginate @comments %><br />
+    <%= render @comments %>
+    <%= will_paginate @comments %><br />
+  <% end %>
+  <% if signed_in? %>
+    <p>Add a Comment to this pain train.</p>
+    <%= render 'comments/commentpost' %>
+  <% else %>
+    <%= render 'shared/login_prompt', :object_name => "comment" %>
+  <% end %>
+</div>

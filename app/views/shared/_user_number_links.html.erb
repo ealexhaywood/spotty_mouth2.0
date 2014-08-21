@@ -1,0 +1,7 @@
+<span class="insults">
+  <%= link_to pluralize(Insult.where(:insulter_id => user).count, "insult"), user_insults_path(user) %> |
+</span>
+<span><%= link_to "#{pluralize(user.votes_for, "vote")} for", voters_for_user_path(user),
+			  :id => "votes_for_link" %> |</span>
+<span><%= link_to "#{pluralize(user.votes_against, "vote")} against", voters_against_user_path(user),
+			  :id => "votes_against_link" %></span>

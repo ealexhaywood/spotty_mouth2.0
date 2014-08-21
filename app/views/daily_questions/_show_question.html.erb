@@ -1,0 +1,20 @@
+<% if signed_in? %>
+  <% if current_user.admin? %>
+    <%= link_to "Add new question", new_daily_question_path %> <br />
+  <% end %>
+<% end %>
+<%= link_to "View the Archive", daily_questions_archive_path %>
+<% unless @daily_question.nil? %>
+  <div class="daily_question">
+    <%= @daily_question.content %>
+  </div>
+  <% if !signed_in? %>
+    <%= render 'shared/login_prompt', :object_name => "comment" %>
+  <% else %>
+    <%= render 'daily_answers/answer_post' %>
+  <% end %>
+  <% unless @daily_answers.empty? %>
+    <%= render :partial => 'daily_answers/answer', :collection => @daily_answers, :as => :answer %>
+    <%= will_paginate @daily_answers %>
+  <% end %>
+<% end %>

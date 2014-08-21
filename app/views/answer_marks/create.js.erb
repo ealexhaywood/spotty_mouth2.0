@@ -1,0 +1,7 @@
+$("answer_<%= @answer_mark.answer_id %>").addClassName("marked_answer");
+$("answer_<%= @answer_mark.answer_id %>_link").update('<%= render :partial => "answer_marks/unmark_answer", 
+	      :locals => {:answer_mark => @answer_mark } %>');
+myArray = $(document).getElementsByClassName('marking_link');
+for(var i=myArray.length-1; i >= 0; i--){
+  myArray[i].remove();
+}

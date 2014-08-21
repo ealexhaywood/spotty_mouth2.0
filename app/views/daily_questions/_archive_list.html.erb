@@ -1,0 +1,4 @@
+<tr>
+  <td><%= link_to truncate(question.content, :length => 50), daily_question_path(question) %></td>
+  <td>Posted <%= time_ago_in_words(question.created_at) %> ago.</td>
+</tr>

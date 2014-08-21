@@ -1,0 +1,28 @@
+<% allowed_user = false %>
+<% if signed_in? %>
+  <% allowed_user = true if current_user.insult_delete_power?(insult) %>
+<% end %>
+
+<p class="timestamp">
+  Posted <%= time_ago_in_words(insult.created_at) %> ago
+    <% if controller.controller_name != 'users' %>
+      on <%= link_to insult.insulted.username, user_path(insult.insulted) %>'s wall
+    <% end %>
+</p>
+<div class="object_wrapper">
+  <div class="insult ratingdiv">
+    <%= (link_to "Delete", insult, :method => :delete, :confirm => "Delete?") if allowed_user %>
+    <%= render 'shared/insult_vote', :insult => insult %>
+  </div>
+  <div class="leftbar">
+    <a href="<%= user_path(insult.insulter) %>">
+      <%= image_tag insult.insulter.image_url.to_s, :class => 'avatar' %>
+    </a><br />
+    <%= name_wrap(insult.insulter.username) %>
+  </div>
+  <div class="insult content"><%= wrap(insult.content) %></div>
+ <% unless controller.controller_name == 'comments' %>
+  <%= link_to "Comments(#{insult.comments.count})", insult_comments_path(insult), 
+						      :class => "comments_link" %>
+ <% end %>
+</div>

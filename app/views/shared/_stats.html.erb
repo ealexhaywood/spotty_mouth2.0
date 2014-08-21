@@ -1,0 +1,15 @@
+<% @user ||= current_user %>
+<div class="stats">
+  <div class="right">
+    <a href="<%= following_user_path(@user) %>">
+    	<span><%= pluralize(@user.following.count, "user") %> in this user's shit list</span>
+    </a>
+  </div>
+  <div>
+    <a href="<%= followers_user_path(@user) %>">
+      <span id="followers"><%= pluralize(@user.followers.count, "user") %> preying on this hater</span>
+    </a>
+  </div>
+  <div class="clearer"></div>
+</div>
+

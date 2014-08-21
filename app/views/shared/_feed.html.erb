@@ -1,0 +1,4 @@
+<% unless @feed_items.empty? %>
+  <%= render :partial => 'insults/insult', :collection => @feed_items, :as => :insult %>
+  <%= will_paginate @feed_items %>
+<% end %>

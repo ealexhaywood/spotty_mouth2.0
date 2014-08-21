@@ -1,0 +1,10 @@
+<div>Drop some sense on this beast:</div>
+<%= form_for [@daily_question, @daily_answer] do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.text_area :content, :class => 'objectPoster' %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

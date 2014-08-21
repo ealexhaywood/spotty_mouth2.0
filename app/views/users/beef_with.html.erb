@@ -1,0 +1,5 @@
+<p>Beef between you and <em><%= link_to @user.username, user_path(@user) %></em>:</p>
+<% unless @insults.empty? %>
+  <%= render :partial => 'insults/insult', :collection => @insults %>
+  <%= will_paginate @insults %>
+<% end %>

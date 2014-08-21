@@ -1,0 +1,22 @@
+<% uppath = "" %>
+<% downpath = "" %>
+<% if signed_in? %>
+  <% if current_user.voted_for?(@user) %>
+    <% uppath += "select" %>
+  <% end %>
+  <% if current_user.voted_against?(@user) %>
+    <% downpath += "select" %>
+  <% end %>
+<% end %>
+
+<% if signed_in? %>
+<%= link_to image_tag("uparrowbig#{uppath}.png"), vote_up_user_path(@user), :method => :post,
+			:title => "Game is tight", :id => "user_up_arrow", :class => "arrow", :remote => true %>
+<% end %>
+
+<h3><strong>Hater Rating: <span id="hater_rating"><%= @user.plusminus.to_s %></span></strong></h3>
+
+<% if signed_in? %>
+<%= link_to image_tag("downarrowbig#{downpath}.png"), vote_down_user_path(@user), :method => :post,
+				      :title => "Game's weak", :id => "user_down_arrow", :class => "arrow", :remote => true %>
+<% end %> 

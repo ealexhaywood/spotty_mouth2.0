@@ -1,0 +1,60 @@
+<div class="profile" summary="Profile Information">
+    <div class="sidebar">
+      <% if signed_in? %>
+	<% if current_user?(@user) %>
+	  <%= link_to "Edit Profile", edit_user_path %> <br />
+	<% end %>
+	<% if current_user.admin? %>
+	  <%= link_to "Delete", @user, :method => :delete, :confirm => "You sure?" %>
+	  <br />
+	<% end %>
+      <% end %>
+    </div>
+    <div class="main">
+	<h1>
+	  <%= image_tag @user.image_url.to_s, :class => 'avatar' %>
+	  <%= clean_name(@user.username) %>
+	</h1>
+	<%= wrap(@user.blurb) %>
+      <div class="user_dashboard">
+	<% unless current_user?(@user) %>
+	  <div>View your <%= link_to "beef", beef_with_path(@user) %> with this hater.</div>
+	<% end %>
+	<%= render :partial => 'shared/user_number_links', :locals => { :user => @user } %>
+	<div class="userfollowdiv">
+	  <%= render 'users/follow_form' if signed_in? %>
+	</div>
+	<div class="userratingdiv">
+	  <%= render 'shared/user_vote' %>
+	</div>
+	<div class="clearer"></div>
+      </div>
+	<%= render 'shared/stats' %>
+      <p>
+	<% if @daily_question %>
+	  This hater's answer to the <%= link_to "Daily Question", 
+	    daily_question_path(@daily_question) %> <br />
+	  <strong>
+	    <% if @user_marked_answer %>
+	      <%= @user_marked_answer.answer.content %>
+	    <% else %>
+	      No Answer Yet
+	    <% end %>
+	  </strong>
+	<% end %>
+      </p >
+    </div>
+</div>
+<div id="insult_div">
+  <% if signed_in? %>
+    Spit some fire on this wall:
+    <%= render 'shared/insult_post' %>
+  <% else %>
+    <%= render 'shared/login_prompt', :object_name => "burn" %>
+  <% end %>
+  <% unless @user.insults.empty? %>
+    <%= render @insults %>
+    <%= will_paginate @insults %>
+  <% end %>
+</div>
+

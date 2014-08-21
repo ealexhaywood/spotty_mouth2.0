@@ -1,0 +1,28 @@
+<% if controller.action_name == 'voters_for' %>
+<p>
+  Users respecting on 
+    <% if controller.controller_name == 'users' %>
+      <%= link_to clean_name(@user.username), user_path(@user) %>:
+    <% elsif controller.controller_name == 'insults' %>
+      <p>
+	<%= link_to @insult.content, user_path(@insult.insulted) %>:
+      </p>
+    <% end %>
+</p>
+<% elsif controller.action_name == 'voters_against' %>
+<p>
+  Users hating on 
+    <% if controller.controller_name == 'users' %>
+      <%= link_to clean_name(@user.username), user_path(@user) %>:
+    <% elsif controller.controller_name == 'insults' %>
+      <p>
+	<%= link_to @insult.content, user_path(@insult.insulted) %>:
+      </p>
+    <% end %>
+</p>
+<% end %>
+<% unless @voters.empty? %>
+  <%= render :partial => 'shared/user_info', :collection => @voters,
+					     :as => :user %>
+  <%= will_paginate @voters %>
+<% end %>

@@ -1,0 +1,5 @@
+$("hater_rating").update('<%= @voted_on_user.plusminus.to_s %>')
+$("user_up_arrow").update('<%= image_tag("uparrowbigselect.png") %>')
+$("user_down_arrow").update('<%= image_tag("downarrowbig.png") %>')
+$("votes_for_link").update('<%= "#{pluralize(@voted_on_user.votes_for, "vote")} for" %>')
+$("votes_against_link").update('<%= "#{pluralize(@voted_on_user.votes_against, "vote")} against" %>')

@@ -1,0 +1,24 @@
+<header>
+  <% logo %>
+  <%= link_to logo, root_path %>
+    <nav>
+      <ul>
+	<li><%= link_to "Home", root_path %></li>
+	<li><%= link_to "Contact", contact_path %></li>
+	<li><%= link_to "Find Victim", findvictim_path %></li>
+	<% if signed_in? %>
+	<li><%= link_to "Profile", current_user %></li>
+	<li id="lastnavitem"><%= link_to "Sign out", signout_path %></li>
+	<% else %>
+	<li id="lastnavitem"><%= link_to "Sign in", signin_path %></li>
+	<% end %>
+      </ul>
+      <br />
+      <br />
+      <ul>
+      	<li><%= link_to "Wall of Fame", walloffame_path %></li>
+	<li><%= link_to "Wall of Shame", wallofshame_path %></li>
+	<li><%= link_to "Daily Question", daily_questions_path %></li>
+      </ul>
+    </nav>
+</header>
